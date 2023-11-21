@@ -62,11 +62,11 @@ CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 
 ## 도커 동작 확인
 **nginx 이미지로 간단한 서버 테스트**
-1. 웹 브라우저를 열어 127.0.0.1:4567에 접속
+1. 웹 브라우저를 열어 127.0.0.1:9876에 접속
    * 현재 4567포트에 동작하는 서버가 없으므로 '사이트에 연결할 수 없음' 상태임
 2. docker run 명령어로 nginx 이미지 기반 컨테이너를 실행하면, 이미지를 자동으로 다운받고 실행해줌
 ```
-$ docker run -p 4567:80 -d nginx:latest
+$ docker run -p 9876:80 -d nginx:latest
 Unable to find image 'nginx:latest' locally
 latest: Pulling from library/nginx
 578acb154839: Pull complete
@@ -85,10 +85,12 @@ Status: Downloaded newer image for nginx:latest
 ```
 $ docker ps
 CONTAINER ID   IMAGE          COMMAND                   CREATED              STATUS              PORTS                  NAMES
-83333752766c   nginx:latest   "/docker-entrypoint.…"    About a minute ago   Up About a minute   0.0.0.0:4567->80/tcp   priceless_sinoussi
+83333752766c   nginx:latest   "/docker-entrypoint.…"    About a minute ago   Up About a minute   0.0.0.0:9876->80/tcp   priceless_sinoussi
 ```
 
-4. 다시 웹 브라우저에서 127.0.0.1:4567에 접속해보면, 이제 ‘Welcome to nginx!’ 메시지 확인
+4. 다시 웹 브라우저에서 127.0.0.1:9876에 접속해보면, 이제 ‘Welcome to nginx!’ 메시지 확인
+<img src="../assets/docker_02.png" width="400"/>
+
 
 5. 사용하지 않는 컨테이너는 docker rm 명령어로 삭제
    * 83333752766c는 docker ps에서 확인할 수 있는 컨테이너 ID
