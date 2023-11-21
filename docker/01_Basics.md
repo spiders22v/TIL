@@ -25,4 +25,4 @@
 - 도커 이미지는 설계서, 컨테이너는 설계서로 만들어진 제품
 - 이미지가 중간에 바뀌어도 기존 컨테이너는 영향을 받지 않음 
 <!-- ![](../assets/docker_01.png) -->
-<img src="../assets/docker_01.png" width="400"/>
+<img src="../assets/docker_01.png" width="600"/>
