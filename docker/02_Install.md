@@ -27,6 +27,45 @@
       * 체크가 되어있지 않다면 체크하고 오른쪽 아래의 Apply & Restart 버튼을 클릭하여 도커 엔진 재실행
 
 
+## 우분투(리눅스)에서 도커 설치
+1. 우분투 시스템 패키지 업데이트
+```
+sudo apt-get update
+```
+
+2. 필요한 패키지 설치
+
+```
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+```
+
+3. Docker의 공식 GPG키 추가
+
+```
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
+
+4. Docker의 공식 apt 저장소 추가
+
+```
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable
+```
+
+5. 시스템 패키지 업데이트
+
+```
+sudo apt-get update
+```
+
+6. Docker 설치
+
+```
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+
+
+
+
 ## 도커 설치 확인
 **윈도우10/11은 Windows Terminal을 열어서 정상 동작하는지 간단하게 테스트**
 
@@ -44,13 +83,13 @@ Client:
  Cloud integration: v1.0.35+desktop.5
  Version:           24.0.6
  API version:       1.43
-...
+ ...
 
 Server: Docker Desktop 4.25.1 (128006)
  Engine:
   Version:          24.0.6
   API version:      1.43 (minimum version 1.12)
-...
+ ...
 ```
 3. docker ps로 실행중인 컨테이너를 확인
     * 아직 아무것도 실행중이지 않은 것을 확인할 수 있음
@@ -60,10 +99,23 @@ $ docker ps
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 ```
 
+**우분투에서는 콘솔창에서 정상 동작하는지 간단하게 테스트**
+1. 도커 실행상태 확인
+
+```
+sudo systemctl status docker
+```
+2. 도커 실행
+
+```
+sudo docker run hello-world
+```
+
+
 ## 도커 동작 확인
 **nginx 이미지로 간단한 서버 테스트**
 1. 웹 브라우저를 열어 127.0.0.1:9876에 접속
-   * 현재 4567포트에 동작하는 서버가 없으므로 '사이트에 연결할 수 없음' 상태임
+   * 현재 9876포트에 동작하는 서버가 없으므로 '사이트에 연결할 수 없음' 상태임
 2. docker run 명령어로 nginx 이미지 기반 컨테이너를 실행하면, 이미지를 자동으로 다운받고 실행해줌
 ```
 $ docker run -p 9876:80 -d nginx:latest
