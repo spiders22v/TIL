@@ -23,8 +23,6 @@ $ docker run -it --rm rockylinux:9 bash
 $ docker run -i -t  --name myredis -d redis
 ```
 
-##  docker run - 옵션
-
 * ```-d``` 옵션
   * 데몬 모드로 컨테이너를 백그라운드에서 실행
   * 아래 코드에서 ```-d``` 옵션없이 실행하면, 해당 터미널에서 ```Ctrl + C``` 눌러서 빠져나오는 순간 해당 컨테이너는 종료될 것
