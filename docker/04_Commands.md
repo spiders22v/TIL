@@ -1,3 +1,8 @@
+# 도커의 라이프싸이클
+<img src="../assets/docker_03.png" width="600"/>
+
+
+
 # 도커 커맨드
 
 * 도커의 기본 명령어 형식
@@ -5,7 +10,7 @@
 docker <SUBCOMMAND> (<OPTIONS>)
 ```
 
-##  docker run - 컨테이너 실행
+##  컨테이너 실행 (docker run)
 
 * 도커 run 기본 명령어 형식
 ```
@@ -108,7 +113,7 @@ $ docker run --rm -it wernight/funbox nyancat
 ```
 
 
-##  docker stop
+##  컨테이너 실행 중지(docker stop)
 
 * 도커 stop 기본 명령어 형식
 ```
