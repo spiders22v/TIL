@@ -141,7 +141,7 @@ CONTAINER ID   IMAGE          COMMAND                   CREATED              STA
 ```
 
 4. 다시 웹 브라우저에서 127.0.0.1:9876에 접속해보면, 이제 ‘Welcome to nginx!’ 메시지 확인
-<img src="../assets/docker_02.png" width="400"/>
+<img src="../assets/docker_02.png" width="450"/>
 
 
 5. 사용하지 않는 컨테이너는 docker rm 명령어로 삭제
