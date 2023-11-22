@@ -133,7 +133,7 @@ Status: Downloaded newer image for nginx:latest
 83333752766cda82d28864b919772835bdb314fde80e1604ee347dd86b9d0bd7
 ```
 
-3. docker ps로 실행중인 컨테이너를 확인
+3. docker ps로 실행중인 컨테이너 확인
 ```
 $ docker ps
 CONTAINER ID   IMAGE          COMMAND                   CREATED              STATUS              PORTS                  NAMES
