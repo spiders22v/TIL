@@ -22,3 +22,7 @@ Git을 이용한 일반적인 작업 패턴은 다음과 같다.
 이를 푸시(push)라 한다. ↩
 
 이를 풀(pull)이라 한다. ↩
+
+
+
+https://heekangpark.github.io/git/git-config
