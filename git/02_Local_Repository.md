@@ -9,8 +9,7 @@
   - 아직 버전 관리를 하지 않는 로컬 디렉토리를 새로운 Git 저장소로 만듦 $\Rightarrow$ ```git init```
   - 원격 저장소를 복제  $\Rightarrow$ ```git clone```
 
-
-## 로컬 저장소 설정
+### 로컬 저장소 새로 만들기 : git init
 
 ```bash
 $ git init
