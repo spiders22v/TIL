@@ -1,4 +1,4 @@
-## 깃 입문 TIL
+## 깃 입문
 
 ## 목차
 1. [깃 소개](https://github.com/spiders22v/TIL/blob/main/git/01_Basics.md)
