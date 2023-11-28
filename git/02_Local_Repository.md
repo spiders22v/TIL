@@ -24,7 +24,7 @@
   - Unmodified: staging area에 있는 파일들을 커밋하게 되면 해당 파일들은 하나의 커밋으로 저장된 후, Unmodified 상태로 변경
   - Modified: Unmodified 상태의 파일들을 수정하게 되면 Modified 로 변경
 
-<img src="../assets/git_02-2.png" width="500"/>
+<img src="../assets/git_02-1.png" width="500"/>
 
 
 ### 로컬 저장소 새로 만들기 : git init
