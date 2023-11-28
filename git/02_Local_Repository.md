@@ -18,10 +18,11 @@
 <img src="../assets/git_02-1.png" width="500"/>
 
 ### Git의 파일 상태 라이프사이클
-- Untracked: Working Directory에 있는 파일로써 Git으로 버전관리를 하지 않는 상태
-- Unmodified: 신규로 파일이 추가되었을 때, new file 상태와 같다. ( $ git add 상태 )
-- Modified: 파일이 추가된 이후 해당 파일이 수정되었을 때의 상태
-- Staged: Staging Area에 반영된 상태
+- Untracked: 저장소에 저장되지 않아 Git으로 버전관리를 하지 않는 상태
+- Tracked: 파일 수종/변경을 Git이 추적하는 상태
+  - Staged: Staging Area에 반영된 상태
+  - Unmodified: staging area에 있는 파일들을 커밋하게 되면 해당 파일들은 하나의 커밋으로 저장된 후, Unmodified 상태로 변경
+  - Modified: Unmodified 상태의 파일들을 수정하게 되면 Modified 로 변경
 
 <img src="../assets/git_02-2.png" width="500"/>
 
@@ -55,7 +56,7 @@ git clone <url> <dir_name>
 
 
 ### 로컬 저장소 Staging area 올리기: git add
-특정 파일을 Staging Area에 올리기 (untracked $\rightarrow$ tracked 상태로 변경)
+특정 파일을 Staging Area에 올리기 (해당 파일은 untracked $\rightarrow$ tracked 상태로 변경)
 
 ```bash
 $ git add <file_name> 
@@ -69,7 +70,7 @@ $ git add .
 ```bash
 $ git add -A
 ```
-  - `git add .`명령어를 최상위 폴더에서 하게된다면 `git add -A`명령어와 동일
+  - `git add .`명령어를 최상위 폴더에서 입력하면 `git add -A`명령어와 동일한 결과 보임
 
 현재 디렉토리 및 하위에 있는 폴더/파일의 모든 변경 내용을 Staging Area에 올리기 (`.gitignore`에 있는 파일도 적용)
 ```bash
@@ -80,10 +81,10 @@ Unstage(Staging Area $\rightarrow$ Working Directory)로 상태 변경
 ```bash
 $ git rm --cached
 ```
-index와 HEAD 사이의 변화를 보여줌
+Repository와 Working Directory 사이의 다른점을 보여주는 명령
 ```bash
 $ git diff --cached
 ```
 
-    - `git rm --cached` 명령어: unstage(Staging Area-> Working Directory)로 상태 변경
-    - `git diff --cached` 명령어: index와 HEAD 사이의 변화를 보여줌
+### 로컬 저장소 에 저장하기: git commit
+Staging area에 올라온 파일 변경 내역을 로컬 저장소에 기록/저장 (해당 파일은 staged $\rightarrow$ tracked 상태로 변경)
