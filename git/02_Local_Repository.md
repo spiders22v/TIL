@@ -9,6 +9,23 @@
   - 아직 버전 관리를 하지 않는 로컬 디렉토리를 새로운 Git 저장소로 만듦 $\Rightarrow$ ```git init```
   - 원격 저장소를 복제  $\Rightarrow$ ```git clone```
 
+
+### Git의 로컬저장소 구성
+- Working Directory : 사용자 작업 프로젝트의 디렉토리
+- Staging Area (Index) : `$ git add` 명령어로 추가한 파일들이 모여있는 공간
+- Repository : `$ git commit` 명령어를 실행하면 Staging Area에 있는 파일들이 하나의 버전으로 저장되는 공간
+
+<img src="../assets/git_02-1.png" width="500"/>
+
+### Git의 파일 상태 라이프사이클
+- Untracked: Working Directory에 있는 파일로써 Git으로 버전관리를 하지 않는 상태
+- Unmodified: 신규로 파일이 추가되었을 때, new file 상태와 같다. ( $ git add 상태 )
+- Modified: 파일이 추가된 이후 해당 파일이 수정되었을 때의 상태
+- Staged: Staging Area에 반영된 상태
+
+<img src="../assets/git_02-2.png" width="500"/>
+
+
 ### 로컬 저장소 새로 만들기 : git init
 특정 디렉토리를 로컬 저장소로 만들고 싶다면 해당 디렉토리로 이동한 후 다음 명령어를 입력
 
@@ -37,23 +54,36 @@ git clone <url> <dir_name>
   - VSCode의 Git 로컬 저장소가 원격 저장소로부터 복제되어 ~/happy/ 디렉토리 밑에 생성됨
 
 
-### 로컬 저장소 추가 및 복제하기 : git add & git commit
-- Git의 로컬저장소 구성
-  - Working Directory : 사용자 작업 프로젝트의 디렉토리
-  - Staging Area : `$ git add` 명령어로 추가한 파일들이 모여있는 공간
-  - Repository : `$ git commit` 명령어를 실행하면 Staging Area에 있는 파일들이 하나의 버전으로 저장되는 공간
+### 로컬 저장소 Staging area 올리기: git add
+특정 파일을 Staging Area에 올리기 (untracked $\rightarrow$ tracked 상태로 변경)
 
-<img src="../assets/git_02-1.png" width="400"/>
+```bash
+$ git add <file_name> 
+```
 
-- Git의 파일 상태 라이프사이클
-  - Untracked: Working Directory에 있는 파일로써 Git으로 버전관리를 하지 않는 상태
-  - Unmodified: 신규로 파일이 추가되었을 때, new file 상태와 같다. ( $ git add 상태 )
-  - Modified: 파일이 추가된 이후 해당 파일이 수정되었을 때의 상태
-  - Staged: Staging Area에 반영된 상태
+현재 디렉토리 및 하위에 있는 폴더/파일의 모든 변경 내용을 Staging Area에 올리기 (`.gitignore`에 있는 파일은 제외)
+```bash
+$ git add .
+```
+작업 디렉토리 내의 모든 변경 내용을 모두 Staging Area에 올리기 (상위, 하위 모두 포함)
+```bash
+$ git add -A
+```
+  - `git add .`명령어를 최상위 폴더에서 하게된다면 `git add -A`명령어와 동일
 
-<img src="../assets/git_02-2.png" width="500"/>
+현재 디렉토리 및 하위에 있는 폴더/파일의 모든 변경 내용을 Staging Area에 올리기 (`.gitignore`에 있는 파일도 적용)
+```bash
+$ git add * 
+```
 
-
+Unstage(Staging Area $\rightarrow$ Working Directory)로 상태 변경
+```bash
+$ git rm --cached
+```
+index와 HEAD 사이의 변화를 보여줌
+```bash
+$ git diff --cached
+```
 
     - `git rm --cached` 명령어: unstage(Staging Area-> Working Directory)로 상태 변경
     - `git diff --cached` 명령어: index와 HEAD 사이의 변화를 보여줌
