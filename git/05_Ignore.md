@@ -1,14 +1,13 @@
 # gitignore file 생성 & 규칙 추가
-커밋에 포함하지 않기 위한 규칙을 git repository의 최상위 .gitignore 파일에 저장한다.
+- Commit에 포함하지 않기 위한 규칙을 git repository의 최상위 .gitignore 파일에 저장할수 있음
 
-Itellij와 같은 좋은 IDE에서는 gitignore 파일을 내부에서 만들 수도 있지만, 때로는 별도로 생성해야 할 때도 있다. 웹사이트에서 손쉽게 ignore파일을 만드는 법을 설명한다.
-
-* [gitignore.io](https://www.gitignore.io/) 사이트에 접속한다.
-* 커밋에 포함시키고 싶지 않은 규칙을 추가하기 위해 OS, IDE, 개발언어, 프레임워크 등 이름을 입력한다.
-* create 버튼을 누르면 친절하게 ignore 파일의 내용을 text로 제공한다. 이것을 가져다 쓰면된다.
+- 아래 웹사이트에서 손쉽게 ignore파일을 만드는 법을 설명한다.
+  * [gitignore.io](https://www.gitignore.io/) 사이트에 접속
+  * 커밋에 포함시키고 싶지 않은 규칙을 추가하기 위해 OS, IDE, 개발언어, 프레임워크 등 이름을 입력
+  * create 버튼을 눌러 ignore 파일의 내용을 text로 제공받음
 
 ### ignore 규칙 별도로 추가하기
-gitignore 파일에 사용자가 별도로 규칙을 정의해야 할 때도 있다. 아래의 규칙에 따라서 별도로 추가하면 된다.
+아래의 규칙에 따라 사용자가 직접 gitignore 파일에 별도로 추가할 수 있음
 
 |   표현   | 의미 |
 | :------: | :------------: |
@@ -26,4 +25,4 @@ gitignore 파일에 사용자가 별도로 규칙을 정의해야 할 때도 있
 context.xml
 ```
 
-위의 내용을 추가해 주면 context.xml파일은 커밋 대상에서 제외 된다.
+위의 내용을 추가해 주면 context.xml파일은 commit 대상에서 제외됨
