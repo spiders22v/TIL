@@ -43,7 +43,7 @@ git clone <url> <dir_name>
   - Staging Area : `$ git add` 명령어로 추가한 파일들이 모여있는 공간
   - Repository : `$ git commit` 명령어를 실행하면 Staging Area에 있는 파일들이 하나의 버전으로 저장되는 공간
 
-  <img src="../assets/git_02-1.png" width="400"/>
+<img src="../assets/git_02-1.png" width="400"/>
 
 - Git의 파일 상태 라이프사이클
   - Untracked: Working Directory에 있는 파일로써 Git으로 버전관리를 하지 않는 상태
@@ -51,7 +51,7 @@ git clone <url> <dir_name>
   - Modified: 파일이 추가된 이후 해당 파일이 수정되었을 때의 상태
   - Staged: Staging Area에 반영된 상태
 
-  <img src="../assets/git_02-2.png" width="500"/>
+<img src="../assets/git_02-2.png" width="500"/>
 
 
 
