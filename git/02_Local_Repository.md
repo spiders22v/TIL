@@ -28,19 +28,20 @@
 
 
 ### 로컬 저장소 새로 만들기 : git init
-- 특정 디렉토리를 로컬 저장소로 만들고 싶다면 해당 디렉토리로 이동한 후 다음 명령어를 입력
+특정 디렉토리를 로컬 저장소로 만들고 싶다면 해당 디렉토리로 이동한 후 다음 명령어를 입력
 
 ```bash
 $ git init
 Initialized empty Git repository in D:/test/.git/
 (main) $
 ```
-    - 디렉토리 밑에 `.git` 숨김 폴더가 생성
-      - Git은 이 폴더 안에 변경 이력 등 버전 관리를 위한 파일들을 모두 저장
-      - 이 디렉토리를 지우면 Git은 더이상 버전 관리를 할 수가 없음
-      - 해당 폴더를 더이상 로컬 저장소로 사용하고 싶지 않다면(버전관리 중단), 그냥 `.git` 디렉토리 삭제 $\Rightarrow$ ```$ rm -rf .git```      
 
-    - `(main)` 브랜치 표기
+  - 디렉토리 밑에 `.git` 숨김 폴더가 생성
+    - Git은 이 폴더 안에 변경 이력 등 버전 관리를 위한 파일들을 모두 저장
+    - 이 디렉토리를 지우면 Git은 더이상 버전 관리를 할 수가 없음
+    - 해당 폴더를 더이상 로컬 저장소로 사용하고 싶지 않다면(버전관리 중단), 그냥 `.git` 디렉토리 삭제 $\Rightarrow$ ```$ rm -rf .git```      
+
+  - `(main)` 브랜치 표기
 
 ### 원격 저장소 복제하기 : git clone
 ```git clone``` 명령어를 이용하면 원격 저장소를 로컬로 복제할 수 있음
@@ -48,10 +49,11 @@ Initialized empty Git repository in D:/test/.git/
 ```bash
 git clone <url> <dir_name>
 ```
-* `<url>` : [필수] 원격 저장소 url
-* `<dir_name>` : [생략 가능] 원격 저장소가 복제될 위치. 생략하면 원격 저장소의 이름을 딴 디렉토리 밑에 로컬 저장소가 생성
-* 사용 예: ``` git clone https://github.com/microsoft/vscode.git happy ```
-  - VSCode의 Git 로컬 저장소가 원격 저장소로부터 복제되어 ~/happy/ 디렉토리 밑에 생성됨
+
+  * `<url>` : [필수] 원격 저장소 url
+  * `<dir_name>` : [생략 가능] 원격 저장소가 복제될 위치. 생략하면 원격 저장소의 이름을 딴 디렉토리 밑에 로컬 저장소가 생성
+  * 사용 예: ``` git clone https://github.com/microsoft/vscode.git happy ```
+    - VSCode의 Git 로컬 저장소가 원격 저장소로부터 복제되어 ~/happy/ 디렉토리 밑에 생성됨
 
 
 ### 로컬 저장소 Staging area 올리기: git add
@@ -87,3 +89,9 @@ $ git diff --cached
 
 ### 로컬 저장소 에 저장하기: git commit
 Staging area에 올라온 파일 변경 내역을 로컬 저장소에 기록/저장 (해당 파일은 staged $\rightarrow$ tracked 상태로 변경)
+
+ 변경점들을 구분하기 위해 `-m` 옵션으로 commit 메세지 입력하기
+```bash
+$ git commit -m "<message>"
+```
+* `<message>`: 변경점들을 구분하기 위한 커밋 메세지
