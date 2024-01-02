@@ -1,8 +1,48 @@
-## 도커 입문 TIL
+# 도커(Docker) 입문 TIL(Today I Learned) 저장소
+- 안녕하세요! 도커(Docker) 입문 TIL 저장소에 오신 여러분을 환영합니다. 
+- 이 저장소는 도커에 대한 기초적인 개념부터 시작하여 실무에서 활용할 수 있는 팁과 예제를 다룰 예정입니다. 
+- 도커는 컨테이너 기반의 가벼운 가상화 기술로, 애플리케이션의 빠른 배포와 확장성을 위해 많이 사용되고 있습니다.
 
-## 목차
-* [도커 소개](https://github.com/spiders22v/TIL/blob/main/docker/01_%EB%8F%84%EC%BB%A4%20%EA%B8%B0%EC%B4%88.md)
-* [도커 설치](https://github.com/spiders22v/TIL/blob/main/docker/02_%EB%8F%84%EC%BB%A4%20%EC%84%A4%EC%B9%98.md)
-* [도커의 라이프사이클](https://github.com/spiders22v/TIL/blob/main/docker/03_%EB%9D%BC%EC%9D%B4%ED%94%84%EC%8B%B8%EC%9D%B4%ED%81%B4.md)
-* [도커 주요 커맨드](https://github.com/spiders22v/TIL/blob/main/docker/04%20%EA%B8%B0%EB%B3%B8%20%EC%BB%A4%EB%A7%A8%EB%93%9C.md)
-* [컨테이너 실행](https://github.com/spiders22v/TIL/blob/main/docker/05_%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%20%EC%8B%A4%ED%96%89.md)
+## TIL이란?
+- TIL은 "Today I Learned"의 약자로, 매일 새로운 지식이나 경험을 학습하고 기록하는 것을 의미합니다. 
+- 이 저장소는 제가 도커를 공부하며 얻은 다양한 경험과 지식을 정리하여 기록하는 공간이 될 것입니다.
+
+## 주요 학습 내용
+
+저장소에서 다룰 도커 학습 내용은 다음과 같습니다:
+
+### 0. [도커 주요 커맨드](https://github.com/spiders22v/TIL/blob/main/docker/04%20%EA%B8%B0%EB%B3%B8%20%EC%BB%A4%EB%A7%A8%EB%93%9C.md)
+
+### 1. [도커 소개와 개념 이해](https://github.com/spiders22v/TIL/blob/main/docker/01_%EB%8F%84%EC%BB%A4%20%EA%B8%B0%EC%B4%88.md)
+   - 도커의 기본 용어와 개념 소개
+   - 이미지, 컨테이너, 레지스트리 등의 핵심 이해
+
+### 2. [도커 설치와 환경 설정](https://github.com/spiders22v/TIL/blob/main/docker/02_%EB%8F%84%EC%BB%A4%20%EC%84%A4%EC%B9%98.md)
+   - 다양한 운영체제에서 도커 설치 방법 안내
+   - 기본적인 도커 환경 설정과 초기 세팅
+
+### 3. [도커의 라이프사이클](https://github.com/spiders22v/TIL/blob/main/docker/03_%EB%9D%BC%EC%9D%B4%ED%94%84%EC%8B%B8%EC%9D%B4%ED%81%B4.md)
+
+### 4. [도커 컨테이너 관리](https://github.com/spiders22v/TIL/blob/main/docker/05_%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%20%EC%8B%A4%ED%96%89.md)
+   - 컨테이너의 생성, 실행, 중지, 삭제 등의 기본적인 운용 방법
+   - 다양한 컨테이너 옵션과 효과적인 관리 방법 소개
+
+### 5. 도커 이미지 생성과 사용 [컨테이너 실행](https://github.com/spiders22v/TIL/blob/main/docker/05_%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%20%EC%8B%A4%ED%96%89.md)
+   - 커스텀 도커 이미지 생성 방법
+   - 공식 이미지 사용 및 다루는 방법
+
+### 6. 도커 네트워킹
+   - 도커 네트워크의 기본 개념 이해
+   - 다양한 네트워크 설정과 활용 방법
+
+### 7. 도커 컴포즈를 활용한 다중 컨테이너 관리
+   - 도커 컴포즈를 사용한 여러 컨테이너 간의 관계 설정
+   - 복잡한 애플리케이션의 도커화 방법
+
+### 8. 도커와 개발 환경 통합
+   - 도커를 통한 개발 환경의 효율적인 구성 방법
+   - 도커를 활용한 지속적인 통합과 배포
+
+저장소를 방문해주셔서 감사합니다. 
+
+도커에 대한 입문 공부를 함께해보면서 새로운 기술에 도전하는 재미를 함께 느껴보시기를 기대합니다! 😊
