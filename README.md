@@ -26,7 +26,7 @@ Matplotlib을 이용한 데이터 시각화 기초
 
 |---|---|-|[챗GPT 개발자 핸드북 (2023.07)](https://hanbit.co.kr/media/books/book_view.html?p_code=B5540360041)|
 |:---:|:---:|:---:|:---:|
-|---|---|---|<a href="https://github.com/spiders22v/TIL/blob/main/book/2023.12_%ED%8A%B8%EB%A0%8C%EB%93%9C%20%EC%BD%94%EB%A6%AC%EC%95%84%202024.md"><img src="assets/book/2023_챗GPT 개발자 핸드북.jpg" width="200"/></a>|
+|---|---|---|<a href="https://github.com/spiders22v/TIL/blob/main/book/2023.07_%EC%B1%97GPT%20%EA%B0%9C%EB%B0%9C%EC%9E%90%20%ED%95%B8%EB%93%9C%EB%B6%81.md"><img src="assets/book/2023_챗GPT 개발자 핸드북.jpg" width="200"/></a>|
 |---|---|---|---|
 
 |[그림과 실습으로 배우는 도커 & 쿠버네티스 (2022.04)](https://wikibook.co.kr/dkkb/)|[프롬프트 엔지니어링 (2023.10)](https://www.booksr.co.kr/product/%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8-%EC%97%94%EC%A7%80%EB%8B%88%EC%96%B4%EB%A7%81/)|[AI 2024: 트렌드 & 활용백과 (2023.10)](https://www.smartbooks21.com/book/9791190238977)|[트렌드 코리아 2024 (2023.10)](http://miraebook.co.kr/bbs/board.php?bo_table=m02_01&wr_id=502)|
