@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vote for your favorite candidate</title>
+  </head>
+  <body>
+    <h1>Vote for your favorite candidate</h1>
+    <form method="POST" action="/vote">
+      {% for candidate_id, candidate_name in candidates.items() %}
+        <input type="radio" name="candidate" value="{{ candidate_id }}">{{ candidate_name }}<br>
+      {% endfor %}
+      <input type="submit" value="Vote">
+    </form>
+  </body>
+</html>

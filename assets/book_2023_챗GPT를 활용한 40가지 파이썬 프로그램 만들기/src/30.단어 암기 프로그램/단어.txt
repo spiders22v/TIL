@@ -1,0 +1,10 @@
+apple:사과
+banana:바나나
+carrot:당근
+dog:개
+elephant:코끼리
+flower:꽃
+guitar:기타
+house:집
+ice cream:아이스크림
+jacket:재킷

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vote for your favorite candidate</title>
+  </head>
+  <body>
+    <h1>Vote for your favorite candidate</h1>
+    {% for candidate_id, candidate_name in candidates.items() %}
+      <a href="/vote/{{ candidate_id }}">{{ candidate_name }}</a><br>
+    {% endfor %}
+    <a href="/result">View result</a>
+  </body>
+</html>

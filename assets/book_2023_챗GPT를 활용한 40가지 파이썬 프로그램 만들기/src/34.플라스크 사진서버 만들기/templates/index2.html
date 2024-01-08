@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Photos</title>
+</head>
+<body>
+    <h1>Photos</h1>
+    {% for photo in photos %}
+        <img src="{{ url_for('static', filename=photo) }}" alt="{{ photo }}">
+    {% endfor %}
+</body>
+</html>

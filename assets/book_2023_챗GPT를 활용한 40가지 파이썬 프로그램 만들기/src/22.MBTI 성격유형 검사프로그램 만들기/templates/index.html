@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <title>MBTI 성격유형검사</title>
+  </head>
+  <body>
+    <h1>MBTI 성격유형검사</h1>
+    <form action="/result" method="post">
+      <ol>
+        {% for i in range(10) %}
+        <li>
+          <p>{{ questions[i] }}</p>
+          <input type="radio" name="q{{ i+1 }}" value="1"> 전혀 그렇지 않다
+          <input type="radio" name="q{{ i+1 }}" value="2"> 그렇지 않은 편이다
+          <input type="radio" name="q{{ i+1 }}" value="3"> 보통이다
+          <input type="radio" name="q{{ i+1 }}" value="4"> 그렇다
+          <input type="radio" name="q{{ i+1 }}" value="5"> 매우 그렇다
+        </li>
+        {% endfor %}
+      </ol>
+      <button type="submit">제출</button>
+    </form>
+  </body>
+</html>
