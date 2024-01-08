@@ -1,34 +1,53 @@
+# 파이썬으로 간단한 GUI를 이용해서 CPU, RAM, 네트워크의 사용량을 1초마다 출력하는 프로그램을 작성해줘. 
+
 import psutil
 import tkinter as tk
+from tkinter import ttk
 
-# 윈도우를 생성합니다.
-window = tk.Tk()
-window.title("시스템 모니터")
+class SystemMonitorApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("System Monitor")
+        self.create_widgets()
 
-# CPU 사용량을 표시할 라벨을 생성합니다.
-cpu_label = tk.Label(window, text="CPU 사용량: ")
-cpu_label.pack()
+    def create_widgets(self):
+        # 라벨 및 프레임 생성
+        self.label_cpu = ttk.Label(self.root, text="CPU 사용량:")
+        self.label_ram = ttk.Label(self.root, text="RAM 사용량:")
+        self.label_network = ttk.Label(self.root, text="네트워크 수신/전송:")
+        
+        self.frame = ttk.Frame(self.root, padding="10")
 
-# RAM 사용량을 표시할 라벨을 생성합니다.
-ram_label = tk.Label(window, text="RAM 사용량: ")
-ram_label.pack()
+        # 라벨 및 프레임 배치
+        self.label_cpu.grid(row=0, column=0, sticky="w")
+        self.label_ram.grid(row=1, column=0, sticky="w")
+        self.label_network.grid(row=2, column=0, sticky="w")
+        self.frame.grid(row=3, column=0, columnspan=2)
 
-# 무한루프를 돌며 CPU, RAM 사용량을 업데이트합니다.
-def update_usage():
-    # CPU 사용량을 구하고 라벨에 업데이트합니다.
-    cpu_percent = psutil.cpu_percent(interval=None)
-    cpu_label.config(text=f"CPU 사용량: {cpu_percent}%")
+        # 1초마다 시스템 정보 갱신
+        self.update_system_stats()
 
-    # RAM 사용량을 구하고 라벨에 업데이트합니다.
-    mem = psutil.virtual_memory()
-    mem_percent = mem.percent
-    ram_label.config(text=f"RAM 사용량: {mem_percent}%")
+    def update_system_stats(self):
+        # CPU 사용량 및 코어 수 업데이트
+        cpu_percent = psutil.cpu_percent()
+        cpu_cores = psutil.cpu_count(logical=False)
+        cpu_text = f"CPU 사용량: {cpu_percent}% (코어 수: {cpu_cores})"
+        self.label_cpu.config(text=cpu_text)
 
-    # 1초 대기합니다.
-    window.after(1000, update_usage)
+        # RAM 사용량 업데이트
+        ram_percent = psutil.virtual_memory().percent
+        ram_text = f"RAM 사용량: {ram_percent}%"
+        self.label_ram.config(text=ram_text)
 
-# 무한루프를 돌며 GUI를 업데이트합니다.
-update_usage()
+        # 네트워크 사용량 업데이트
+        network_stats = psutil.net_io_counters()
+        network_text = f"네트워크 수신: {network_stats.bytes_recv} bytes, 전송: {network_stats.bytes_sent} bytes"
+        self.label_network.config(text=network_text)
 
-# 윈도우를 실행합니다.
-window.mainloop()
+        # 1초 대기 후 재귀 호출
+        self.root.after(1000, self.update_system_stats)
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = SystemMonitorApp(root)
+    root.mainloop()
