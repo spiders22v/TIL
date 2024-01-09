@@ -1,37 +1,49 @@
-import openpyxl
+# 엑셀 파일에서 읽은 이메일 주소로 메일을 보내는 프로그램을 작성해줘. 제목은 읽은 이름 + 님 환영합니다. 네용은 이름 + 님 늦지 않게 와 주세요. 로 작성해줘. 코드에서 이메일 주소와 비밀번호를 바로 입력할 수 있도록 작성해줘
+
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-# 이메일 설정
-your_email_address = "your_email_address@example.com"  # 본인의 이메일 주소
-your_email_password = "your_email_password"  # 본인의 이메일 비밀번호
-smtp_server = "smtp.naver.com"  # SMTP 서버 주소
-smtp_port = 587  # SMTP 서버 포트 번호
+def send_email(receiver_email, name):
+    # Gmail 계정 설정
+    email_address = 'your_email@gmail.com'  # 본인의 Gmail 이메일 주소 입력
+    email_password = 'your_password'  # 본인의 Gmail 비밀번호 입력
 
-# 엑셀 파일 열기
-wb = openpyxl.load_workbook('11.엑셀에서 읽어 이메일 자동으로 보내기\이메일.xlsx')
-sheet = wb.active
-
-# 각 행의 이메일과 이름에 대해 메일 보내기
-for row in sheet.iter_rows(min_row=2, values_only=True):  # 첫 번째 행은 제외
-    email, name = row
-
-    # 이메일 내용 작성
-    subject = f"{name}님 환영합니다."
-    body = f"{name}님 늦지 않게 와주세요."
+    # 이메일 내용 설정
+    subject = f'{name} 님 환영합니다.'
+    body = f'{name} 님, 늦지 않게 와 주세요.'
+    
+    # 이메일 구성
     message = MIMEMultipart()
-    message['From'] = your_email_address
-    message['To'] = email
+    message['From'] = email_address
+    message['To'] = receiver_email
     message['Subject'] = subject
+
+    # 본문 추가
     message.attach(MIMEText(body, 'plain'))
 
-    # 이메일 보내기
-    with smtplib.SMTP(smtp_server, smtp_port) as smtp:
-        smtp.ehlo()
-        smtp.starttls()
-        smtp.login(your_email_address, your_email_password)
-        smtp.sendmail(your_email_address, email, message.as_string())
+    # SMTP 서버 연결 및 이메일 전송
+    with smtplib.SMTP('smtp.gmail.com', 587) as server:
+        server.starttls()
+        server.login(email_address, email_password)
+        server.sendmail(email_address, receiver_email, message.as_string())
 
-# 엑셀 파일 닫기
-wb.close()
+# 엑셀 파일에서 이메일 주소 읽기 (예시)
+# 이 예제에서는 pandas 라이브러리를 사용합니다.
+import pandas as pd
+
+# 엑셀 파일 경로 지정
+excel_path = '이메일주소.xlsx'  # 본인의 엑셀 파일 경로 입력
+
+# 엑셀 파일 읽기
+df = pd.read_excel(excel_path)
+
+# 각 행에 대해 이메일 보내기
+for index, row in df.iterrows():
+    receiver_email = row['이메일 주소']  # '이메일 주소'는 실제 엑셀 파일의 열 제목입니다.
+    name = row['이름']  # '이름'은 실제 엑셀 파일의 열 제목입니다.
+    
+    # 이메일 보내기
+    send_email(receiver_email, name)
+
+print("이메일이 전송되었습니다.")

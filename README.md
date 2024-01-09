@@ -41,7 +41,7 @@ Matplotlib을 이용한 데이터 시각화 기초
 |작성일|제목|발행|1줄평|
 |:---:|:---|:---:|:---|
 |2024.01.XX|[챗GPT와 기획∙분석∙보고](https://github.com/spiders22v/TIL/blob/main/book/2024.01_%EC%B1%97GPT%EC%99%80%20%EA%B8%B0%ED%9A%8D%E2%88%99%EB%B6%84%EC%84%9D%E2%88%99%EB%B3%B4%EA%B3%A0.md)|'23.04|---|
-|2024.01.02|[AI 2024: 트렌드 & 활용백과](https://github.com/spiders22v/TIL/blob/main/book/2023.12_AI%202024%20%ED%8A%B8%EB%A0%8C%EB%93%9C%26%ED%99%9C%EC%9A%A9%EB%B0%B1%EA%B3%BC.md)|'23.10|2024년 생성형 AI 트렌드를 읽고, 다양한 AI 도구 사용법 소개|
+|2024.01.02|[AI 2024: 트렌드 & 활용백과](https://github.com/spiders22v/TIL/blob/main/book/2023.12_AI%202024%20%ED%8A%B8%EB%A0%8C%EB%93%9C%26%ED%99%9C%EC%9A%A9%EB%B0%B1%EA%B3%BC.md)|'23.10|2024년 생성형 AI 트렌드와 다양한 생성형 AI 도구 특징과 사용법을 파악|
 |2023.12.08|[트렌드 코리아 2024](https://github.com/spiders22v/TIL/blob/main/book/2023.12_%ED%8A%B8%EB%A0%8C%EB%93%9C%20%EC%BD%94%EB%A6%AC%EC%95%84%202024.md)|'23.10|2024년 대한민국 소비 풍경을 이끌 10대 키워드 예측과 해석
 
 
