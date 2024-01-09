@@ -1,30 +1,31 @@
+# (main10-1 프롬프트에 이어서) 찾은 이메일 주소를 "이메일.xlsx"로 저장하는 코드를 작성해줘.
+
 import requests
 from bs4 import BeautifulSoup
 import re
 import pandas as pd
 
-url = "https://v.daum.net/v/20230303140011566"  # 이메일을 수집할 웹 페이지 주소
-response = requests.get(url)  # 웹 페이지 요청
+def extract_emails(url):
+    # 웹페이지에서 HTML 내용을 가져옴
+    response = requests.get(url)
+    html_content = response.text
 
-soup = BeautifulSoup(response.text, "html.parser")  # BeautifulSoup 객체 생성
-emails = []
+    # 이메일 주소를 정규식을 사용하여 추출
+    emails = re.findall(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b', html_content)
 
-# 이메일 패턴
-email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+    # 중복 이메일을 제거하기 위해 set으로 변환 후 다시 리스트로 변환
+    unique_emails = list(set(emails))
 
-# 웹 페이지에서 모든 텍스트 추출
-text = soup.get_text()
+    return unique_emails
 
-# 이메일 패턴 매칭 후 리스트에 추가
-for match in re.findall(email_pattern, text):
-    emails.append(match)
+# 이메일을 수집하고 싶은 웹페이지의 URL을 지정
+webpage_url = 'https://v.daum.net/v/20230303140011566'
+extracted_emails = extract_emails(webpage_url)
 
-# 중복 제거
-emails = list(set(emails))
+# 데이터프레임 생성
+df = pd.DataFrame({'Emails': extracted_emails})
 
-# 결과 출력
-print(emails)
+# Excel 파일로 저장
+df.to_excel('이메일.xlsx', index=False)
 
-# 이메일을 엑셀 파일로 저장
-df = pd.DataFrame(emails, columns=["Email"])
-df.to_excel("10.이메일을 수집하여 엑셀에 기록하기/이메일.xlsx", index=False)
+print("이메일이 '이메일.xlsx' 파일로 저장되었습니다.")

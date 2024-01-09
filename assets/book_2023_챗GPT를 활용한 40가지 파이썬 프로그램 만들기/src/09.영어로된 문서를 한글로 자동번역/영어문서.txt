@@ -1,4 +1,5 @@
-The grass is always greener.
-Kill two birds with one stone.
-No pain, no gain.
-Blood is thicker than water.
+"The sun is shining brightly in the clear blue sky.",
+"I enjoy reading books by the fireplace on a rainy day.",
+"Cats and dogs make wonderful companions.",
+"Coding is a creative and rewarding skill to learn.",
+"Traveling allows us to explore new cultures and cuisines."
