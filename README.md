@@ -34,7 +34,7 @@ Matplotlib을 이용한 데이터 시각화 기초
 ### 프로그래밍 언어
 |작성일|제목|유형|출간일|1줄평|
 |:---:|:---|:---:|:---:|:---|
-|2024.01.XX|[챗GPT를 활용한 40가지 파이썬 프로그램 만들기](https://github.com/spiders22v/TIL/blob/main/book/2024.01_%EC%B1%97GPT%EB%A5%BC%20%ED%99%9C%EC%9A%A9%ED%95%9C%2040%EA%B0%80%EC%A7%80%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%20%EB%A7%8C%EB%93%A4%EA%B8%B0.md)|Python|'23.04.30|---|
+|2024.01.XX|[챗GPT를 활용한 40가지 파이썬 프로그램 만들기](https://github.com/spiders22v/TIL/blob/main/book/2024.01_%EC%B1%97GPT%EB%A5%BC%20%ED%99%9C%EC%9A%A9%ED%95%9C%2040%EA%B0%80%EC%A7%80%20%ED%8C%8C%EC%9D%B4%EC%8D%AC%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%20%EB%A7%8C%EB%93%A4%EA%B8%B0.md)|Python|'23.04.30|ChatGPT에 코드 요청하는 40종 프롬프트 사례만 있음 😞 |
 |2024.01.05|[챗GPT 개발자 핸드북](https://github.com/spiders22v/TIL/blob/main/book/2024.01_%EC%B1%97GPT%20%EA%B0%9C%EB%B0%9C%EC%9E%90%20%ED%95%B8%EB%93%9C%EB%B6%81.md)|프로그래밍 일반|'23.07.31|챗GPT를 업무보조 수단으로 활용할 수 있는 팁/사례 익힘|
 
 ### IT일반

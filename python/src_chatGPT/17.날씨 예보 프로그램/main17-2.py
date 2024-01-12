@@ -1,3 +1,4 @@
+# 획득한 날씨를 날씨저장.xlsx의 엑셀 파일로 날자와 시간과 함께 30분 간격으로 저장하는 프로그램을 작성해줘.
 import requests
 import json
 import datetime

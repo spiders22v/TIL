@@ -1,8 +1,10 @@
+# 파이썬으로 날씨 예보 프로그램을 만들어줘
+
 import requests
 import json
 
 api_key = '58659c9f71f5c4b54841fc18d52d990a'  # 여기에 발급받은 API 키를 입력하세요.
-city_name = 'seoul'
+city_name = 'jeju'
 
 # API 호출
 url = f'https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}&units=metric'
