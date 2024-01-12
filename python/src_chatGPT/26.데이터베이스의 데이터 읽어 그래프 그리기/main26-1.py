@@ -1,3 +1,5 @@
+# 파이썬으로 upbit.db 데이터베이스 파일이 있어. 날짜시간, 금액으로 표시되었는데 이 데이터베이스에서 값을 읽어 그래프를 그리는 코드를 작성해줘. 
+
 import sqlite3
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
