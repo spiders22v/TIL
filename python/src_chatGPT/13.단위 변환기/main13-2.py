@@ -1,66 +1,79 @@
-import sys
-from PyQt5.QtWidgets import QApplication, QWidget, QComboBox, QLineEdit, QLabel, QPushButton
+# 파이썬으로 단위변환 프로그램을 GUI를 이용해서 만들어줘
 
+import tkinter as tk
+from tkinter import ttk
 
-class UnitConverter(QWidget):
-    def __init__(self):
-        super().__init__()
-        self.initUI()
+def temperature_converter():
+    celsius_label.grid(row=3, column=0, sticky="E")
+    fahrenheit_label.grid(row=3, column=2, sticky="E")
+    celsius_entry.grid(row=3, column=1, padx=5, pady=5)
+    fahrenheit_entry.grid(row=3, column=3, padx=5, pady=5)
+    convert_button.grid(row=4, column=1, columnspan=3, pady=10)
+
+    def convert_temperature():
+        try:
+            celsius_value = float(celsius_entry.get())
+            fahrenheit_result.set((celsius_value * 9/5) + 32)
+        except ValueError:
+            fahrenheit_result.set("Invalid Input")
+
+    convert_button.config(command=convert_temperature)
+
+def length_converter():
+    meter_label.grid(row=3, column=0, sticky="E")
+    kilometer_label.grid(row=3, column=2, sticky="E")
+    meter_entry.grid(row=3, column=1, padx=5, pady=5)
+    kilometer_entry.grid(row=3, column=3, padx=5, pady=5)
+    convert_button.grid(row=4, column=1, columnspan=3, pady=10)
+
+    def convert_length():
+        try:
+            meter_value = float(meter_entry.get())
+            kilometer_result.set(meter_value / 1000)
+        except ValueError:
+            kilometer_result.set("Invalid Input")
+
+    convert_button.config(command=convert_length)
+
+def show_converter():
+    selected_category = category_combobox.get()
     
-    def initUI(self):
-        # 단위변환 프로그램 제목
-        self.setWindowTitle("Unit Converter")
-        
-        # 입력 필드
-        self.value_input = QLineEdit(self)
-        self.value_input.setGeometry(20, 20, 150, 30)
-        
-        # 입력 단위 선택
-        self.unit_from = QComboBox(self)
-        self.unit_from.addItems(["Celsius", "Fahrenheit", "Meter", "Feet"])
-        self.unit_from.setGeometry(180, 20, 100, 30)
-        
-        # 출력 단위 선택
-        self.unit_to = QComboBox(self)
-        self.unit_to.addItems(["Fahrenheit", "Celsius", "Feet", "Meter"])
-        self.unit_to.setGeometry(290, 20, 100, 30)
-        
-        # 변환 버튼
-        self.convert_button = QPushButton("Convert", self)
-        self.convert_button.setGeometry(400, 20, 100, 30)
-        self.convert_button.clicked.connect(self.convert)
-        
-        # 결과 출력
-        self.result_label = QLabel("", self)
-        self.result_label.setGeometry(20, 80, 480, 30)
-        
-        # 윈도우 크기 및 위치 설정
-        self.setGeometry(300, 300, 520, 150)
-        self.show()
-    
-    def convert(self):
-        # 사용자로부터 입력값과 단위를 가져옴
-        value = float(self.value_input.text())
-        unit_from = self.unit_from.currentText()
-        unit_to = self.unit_to.currentText()
-        
-        # 입력받은 단위에 따라 변환 수행
-        if unit_from == "Celsius" and unit_to == "Fahrenheit":
-            result = value * 9/5 + 32
-        elif unit_from == "Fahrenheit" and unit_to == "Celsius":
-            result = (value - 32) * 5/9
-        elif unit_from == "Meter" and unit_to == "Feet":
-            result = value * 3.281
-        elif unit_from == "Feet" and unit_to == "Meter":
-            result = value / 3.281
-        else:
-            result = "Invalid input"
-        
-        # 결과를 레이블에 출력
-        self.result_label.setText("{:.2f} {} = {:.2f} {}".format(value, unit_from, result, unit_to))
+    if selected_category == "온도 변환":
+        temperature_converter()
+    elif selected_category == "길이 변환":
+        length_converter()
 
+# GUI 생성
+root = tk.Tk()
+root.title("단위 변환 프로그램")
 
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    converter = UnitConverter()
-    sys.exit(app.exec_())
+# 카테고리 선택
+category_label = tk.Label(root, text="카테고리 선택:")
+category_label.grid(row=0, column=0, padx=5, pady=5, sticky="E")
+
+categories = ["온도 변환", "길이 변환"]
+category_combobox = ttk.Combobox(root, values=categories)
+category_combobox.grid(row=0, column=1, padx=5, pady=5)
+category_combobox.set("온도 변환")
+
+# 결과 표시 레이블
+celsius_label = tk.Label(root, text="섭씨(Celsius):")
+fahrenheit_label = tk.Label(root, text="화씨(Fahrenheit):")
+celsius_entry = tk.Entry(root)
+fahrenheit_result = tk.StringVar()
+fahrenheit_entry = tk.Entry(root, textvariable=fahrenheit_result, state="readonly")
+
+meter_label = tk.Label(root, text="미터(m):")
+kilometer_label = tk.Label(root, text="킬로미터(km):")
+meter_entry = tk.Entry(root)
+kilometer_result = tk.StringVar()
+kilometer_entry = tk.Entry(root, textvariable=kilometer_result, state="readonly")
+
+# 변환 버튼
+convert_button = tk.Button(root, text="변환")
+
+# 카테고리 선택 후 보여주기 버튼
+show_converter_button = tk.Button(root, text="선택한 카테고리 보기", command=show_converter)
+show_converter_button.grid(row=1, column=0, columnspan=2, pady=10)
+
+root.mainloop()

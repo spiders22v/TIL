@@ -1,28 +1,52 @@
-while True:
-    try:
-        # 사용자로부터 변환하고자 하는 값과 단위를 입력받음
-        value = float(input("변환하고자 하는 값을 입력하세요: "))
-        unit = input("변환하고자 하는 단위를 입력하세요: ")
-        
-        # 입력받은 단위에 따라 변환 수행
-        if unit == "C":
-            fahrenheit = value * 9/5 + 32
-            print("{0:.2f}℉".format(fahrenheit))
-        elif unit == "F":
-            celsius = (value - 32) * 5/9
-            print("{0:.2f}℃".format(celsius))
-        elif unit == "m":
-            feet = value * 3.281
-            print("{0:.2f}ft".format(feet))
-        elif unit == "ft":
-            meter = value / 3.281
-            print("{0:.2f}m".format(meter))
-        else:
-            print("잘못된 입력입니다. 다시 시도해주세요.")
-        
-        # 다시 변환할 것인지 사용자에게 물어봄
-        answer = input("다시 변환하시겠습니까? (Y/N)").upper()
-        if answer == "N":
-            break
-    except ValueError:
-        print("잘못된 입력입니다. 다시 시도해주세요.")
+# 파이썬으로 온도와 미터 단위 변환 프로그램을 만들어줘.
+
+def temperature_converter():
+    print("1. 섭씨(Celsius)에서 화씨(Fahrenheit)로 변환")
+    print("2. 화씨(Fahrenheit)에서 섭씨(Celsius)로 변환")
+
+    choice = input("변환할 단위를 선택하세요 (1/2): ")
+
+    if choice not in ['1', '2']:
+        print("올바른 선택이 아닙니다.")
+        return
+
+    value = float(input("변환할 온도 값 입력: "))
+
+    if choice == '1':
+        result = (value * 9/5) + 32
+        print(f"{value} 섭씨는 {result} 화씨입니다.")
+    elif choice == '2':
+        result = (value - 32) * 5/9
+        print(f"{value} 화씨는 {result} 섭씨입니다.")
+
+def length_converter():
+    print("1. 미터(m)에서 킬로미터(km)로 변환")
+    print("2. 킬로미터(km)에서 미터(m)로 변환")
+
+    choice = input("변환할 단위를 선택하세요 (1/2): ")
+
+    if choice not in ['1', '2']:
+        print("올바른 선택이 아닙니다.")
+        return
+
+    value = float(input("변환할 길이 값 입력: "))
+
+    if choice == '1':
+        result = value / 1000
+        print(f"{value} 미터는 {result} 킬로미터입니다.")
+    elif choice == '2':
+        result = value * 1000
+        print(f"{value} 킬로미터는 {result} 미터입니다.")
+
+if __name__ == "__main__":
+    print("1. 온도 변환")
+    print("2. 길이 변환")
+
+    category_choice = input("변환할 카테고리를 선택하세요 (1/2): ")
+
+    if category_choice == '1':
+        temperature_converter()
+    elif category_choice == '2':
+        length_converter()
+    else:
+        print("올바른 선택이 아닙니다.")

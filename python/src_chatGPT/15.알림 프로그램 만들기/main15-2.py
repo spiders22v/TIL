@@ -1,18 +1,26 @@
-from datetime import datetime, timedelta
-from win10toast import ToastNotifier
-import time
+# 파이썬으로 월요일, 수요일, 금요일 9시 50분에 "회의시작 10분전 입니다."의 알림을 표시하는 프로그램 작성해줘.
 
-toaster = ToastNotifier()
+import schedule
+import time
+from win10toast import ToastNotifier
+from datetime import datetime, timedelta
+
+def show_notification(message):
+    toaster = ToastNotifier()
+    toaster.show_toast("알림", message, duration=10)
+
+def job():
+    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    message = f"회의 시작 10분 전입니다. (현재 시간: {current_time})"
+    show_notification(message)
+
+# 특정 시간에 작업 예약
+schedule.every().monday.at("09:50").do(job)
+schedule.every().wednesday.at("09:50").do(job)
+schedule.every().friday.at("09:50").do(job)
 
 while True:
-    now = datetime.now()
-    if now.weekday() in [0, 2, 4] and now.hour == 9 and now.minute == 50:
-        # 다음 회의 시작 시간 계산
-        next_meeting_time = now + timedelta(minutes=10)
-        next_meeting_time_str = next_meeting_time.strftime("%Y-%m-%d %H:%M:%S")
-
-        # 알림 표시
-        toaster.show_toast("알림", f"{next_meeting_time_str}에 회의가 시작됩니다.", duration=10)
-
-    # 1초마다 반복
+    schedule.run_pending()
     time.sleep(1)
+
+# 주의: 이 코드는 무한 루프로 계속 실행되므로 종료하려면 수동으로 종료해야 합니다. 

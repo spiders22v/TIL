@@ -16,4 +16,3 @@ def correct_spelling(text):
 sentence = input('문장을 입력하세요: ')
 checked_sentence = correct_spelling(sentence)
 print('검사 결과:', checked_sentence)
-
