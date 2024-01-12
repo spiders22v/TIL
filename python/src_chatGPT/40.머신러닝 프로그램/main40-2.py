@@ -1,38 +1,41 @@
-from sklearn.datasets import load_boston
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error, r2_score
+# 파이썬 선형 회귀에 관한 머신러닝 프로그램을 만들어줘
+
 import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+import matplotlib.pyplot as plt
 
-# 데이터 로드
-boston = load_boston()
-X = boston.data
-y = boston.target
+plt.rcParams['font.family'] ='Malgun Gothic'
+plt.rcParams['axes.unicode_minus'] =False
 
-# 데이터 분리
+# 임의의 데이터 생성
+np.random.seed(42)
+X = 2 * np.random.rand(100, 1)
+y = 4 + 3 * X + np.random.randn(100, 1)
+
+# 데이터를 훈련 세트와 테스트 세트로 분할
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# 모델 학습
-reg = LinearRegression()
-reg.fit(X_train, y_train)
+# 선형 회귀 모델 생성 및 훈련
+model = LinearRegression()
+model.fit(X_train, y_train)
 
-# 모델 평가
-y_pred = reg.predict(X_test)
+# 훈련된 모델을 사용하여 테스트 세트에 대한 예측
+y_pred = model.predict(X_test)
+
+# 성능 지표 출력
 mse = mean_squared_error(y_test, y_pred)
-rmse = np.sqrt(mse)
 r2 = r2_score(y_test, y_pred)
-print("실행결과")
-print("="*80)
-print(f"Mean squared error: {mse}")
-print(f"Root mean squared error: {rmse}")
-print(f"R^2 score: {r2}")
-print("="*80)
-from sklearn.model_selection import cross_val_score
+print(f"평균 제곱 오차 (MSE): {mse:.2f}")
+print(f"결정 계수 (R^2): {r2:.2f}")
 
-# 교차 검증
-scores = cross_val_score(reg, X, y, cv=5)
-print("교차검증")
-print("="*80)
-print(f"Cross-validation scores: {scores}")
-print(f"Average score: {scores.mean()}")
-print("="*80)
+# 테스트 세트와 예측 결과를 시각화
+plt.scatter(X_test, y_test, color='black')
+plt.plot(X_test, y_pred, color='blue', linewidth=3)
+plt.xlabel('X')
+plt.ylabel('y')
+plt.title('선형 회귀 예측 결과')
+plt.show()
+
+# 이 코드는 1차원 입력 변수 X와 대응하는 출력 변수 y를 생성한 후, 선형 회귀 모델을 사용하여 학습하고 테스트 데이터에 대한 예측을 수행합니다. 모델의 성능 지표로 평균 제곱 오차(MSE)와 결정 계수(R^2)를 출력하며, 시각화를 통해 테스트 세트와 예측 결과를 비교합니다.

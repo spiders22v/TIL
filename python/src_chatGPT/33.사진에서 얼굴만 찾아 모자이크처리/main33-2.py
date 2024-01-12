@@ -29,5 +29,5 @@ for filename in os.listdir('.'):
             image[y:y+h, x:x+w] = face_roi
 
         # 수정된 파일 저장
-        modified_filename = 'modify_' + filename
+        modified_filename = 'modi_' + filename
         cv2.imwrite(modified_filename, image)

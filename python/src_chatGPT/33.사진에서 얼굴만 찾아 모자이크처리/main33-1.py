@@ -5,7 +5,7 @@ import os
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 # 이미지 불러오기
-image = cv2.imread('photo.jpg')
+image = cv2.imread('photo2.jpg')
 
 # 얼굴 인식을 위한 분류기 불러오기
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
