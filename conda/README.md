@@ -11,5 +11,5 @@ $ conda install numpy pyqt
 
 ### 부가 프로그램
 ```bash
-$ sudo pip install jupyter
+$ pip install jupyter
 ```
