@@ -72,3 +72,9 @@ $ git push --force-with-lease
 $ git pull <remote> <branch>
 ```
 - 두 매개변수 미지정 사용할 경우 원격 저장소로 origin을, 현재 작업하고 있는 브랜치를 지정함
+
+## push/pull 시 username, password 생략하는 법
+```bash
+$ git config credential.helper store --global
+```
+
