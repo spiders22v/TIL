@@ -6,8 +6,7 @@ $ conda create -n torch python=3.11
 
 ### Conda 필수 패키지
 ```bash
-$ conda install nano git numpy scikit-learn pandas matplotlib opencv pyqt seaborn 
-
+$ conda install nano git numpy scikit-learn pandas matplotlib opencv pyqt seaborn
 ```
 
 ### 딥러닝 패키지
