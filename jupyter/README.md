@@ -67,7 +67,7 @@ c.ServerApp.open_browser = False
 jupyter notebook --config /home/spiders22v/.jupyter/jupyter_notebook_config.py
 ```
 
-### 외부에서 jupyter notebook 접속해서 테스트 하기
+### 3.6 외부에서 jupyter notebook 접속해서 테스트 하기
 ```url
 주피터 서버 ip:8888
 ```
